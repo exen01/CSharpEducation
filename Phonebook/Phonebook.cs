@@ -25,6 +25,9 @@ namespace Phonebook
     /// </summary>
     private const string FileName = "phonebook.txt";
 
+    /// <summary>
+    /// Конструктор.
+    /// </summary>
     private Phonebook() { }
 
     /// <summary>

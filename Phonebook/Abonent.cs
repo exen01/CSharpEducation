@@ -5,10 +5,6 @@
   /// </summary>
   internal struct Abonent
   {
-    public Abonent()
-    {
-    }
-
     /// <summary>
     /// Имя абонента.
     /// </summary>
@@ -18,6 +14,11 @@
     /// Номер телефона абонента.
     /// </summary>
     public string Phone { get; set; }
+
+    /// <summary>
+    /// Конструктор.
+    /// </summary>
+    public Abonent() { }
 
     /// <summary>
     /// Создает новый экземпляр структуры Abonent с указанными именем и номером телефона.
