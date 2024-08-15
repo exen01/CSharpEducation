@@ -2,12 +2,35 @@
 
 namespace Phonebook
 {
+  /// <summary>
+  /// Представляет телефонную книгу, позволяющую добавлять, удалять, искать и обновлять контакты.
+  /// Данные о контактах хранятся в файле "phonebook.txt" в формате JSON.
+  /// </summary>
   internal class Phonebook
   {
+    /// <summary>
+    /// Словарь, хранящий информацию об абонентах телефонной книги.
+    /// Ключом в словаре является номер телефона, а значением - имя абонента.
+    /// </summary>
     private static Dictionary<string, string> abonents;
+
+    /// <summary>
+    /// Единственный экземпляр класса Phonebook.
+    /// Используется для реализации паттерна Singleton.
+    /// </summary>
     private static Phonebook instance;
 
+    /// <summary>
+    /// Имя файла для сохранения списка абонентов.
+    /// </summary>
+    private const string FileName = "phonebook.txt";
+
     private Phonebook() { }
+
+    /// <summary>
+    /// Получение экземпляра типа Phonebook.
+    /// </summary>
+    /// <returns>Объект Phonebook.</returns>
     public static Phonebook GetInstance()
     {
       if (instance == null)
@@ -19,15 +42,19 @@ namespace Phonebook
       return instance;
     }
 
+    /// <summary>
+    /// Загружает словарь абонентов из файла.
+    /// </summary>
+    /// <returns>Словарь абонентов.</returns>
     private static Dictionary<string, string> LoadAbonentsFromFile()
     {
       Dictionary<string, string> abonents = new Dictionary<string, string>();
 
-      if (File.Exists("phonebook.txt"))
+      if (File.Exists(FileName))
       {
         try
         {
-          using (StreamReader sr = new StreamReader("phonebook.txt"))
+          using (StreamReader sr = new StreamReader(FileName))
           {
             string line;
             while ((line = sr.ReadLine()) != null)
@@ -45,7 +72,7 @@ namespace Phonebook
       }
       else
       {
-        File.Create("phonebook.txt").Dispose();
+        File.Create(FileName).Dispose();
       }
 
       return abonents;
@@ -53,6 +80,7 @@ namespace Phonebook
 
     /// <summary>
     /// Добавляет нового абонента в телефонную книгу.
+    /// Если абонент с указанным номером уже существует, то операция не выполняется.
     /// </summary>
     /// <param name="name">Имя абонента</param>
     /// <param name="phone">Номер телефона</param>
@@ -72,7 +100,7 @@ namespace Phonebook
     /// Получает абонента по номеру телефона.
     /// </summary>
     /// <param name="phone">Номер телефона</param>
-    /// <returns>Абонента если найден, иначе null.</returns>
+    /// <returns>Объект <see cref="Abonent"/>, если абонент найден; иначе null.</returns>
     public Abonent? GetAbonentByPhone(string phone)
     {
       if (abonents.TryGetValue(phone, out string name))
@@ -91,7 +119,7 @@ namespace Phonebook
     /// Получает абонента по имени.
     /// </summary>
     /// <param name="name">Имя абонента</param>
-    /// <returns>Абонента если найден, иначе null.</returns>
+    /// <returns>Объект <see cref="Abonent"/>, если абонент найден; иначе null.</returns>
     public Abonent? GetAbonentByName(string name)
     {
       if (abonents.ContainsValue(name))
@@ -152,9 +180,12 @@ namespace Phonebook
       }
     }
 
+    /// <summary>
+    /// Сохраняет список абонентов в файл.
+    /// </summary>
     private void SaveAbonentsToFile()
     {
-      using StreamWriter sw = new("phonebook.txt", false);
+      using StreamWriter sw = new(FileName, false);
       foreach (var abonent in abonents)
       {
         sw.WriteLine(JsonSerializer.Serialize(new Abonent(abonent.Value, abonent.Key)));

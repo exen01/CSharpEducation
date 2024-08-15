@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-
-namespace Phonebook
+﻿namespace Phonebook
 {
   internal class Program
   {
@@ -67,6 +65,10 @@ namespace Phonebook
       }
     }
 
+    /// <summary>
+    /// Выводит список всех абонентов из телефонной книги.
+    /// </summary>
+    /// <param name="phonebook">Экземпляр телефонной книги</param>
     private static void ShowAllAbonents(Phonebook phonebook)
     {
       var abonents = phonebook.GetAbonents();
@@ -85,6 +87,10 @@ namespace Phonebook
       }
     }
 
+    /// <summary>
+    /// Обновляет имя абонента в телефонной книге.
+    /// </summary>
+    /// <param name="phonebook">Экземпляр телефонной книги</param>
     private static void UpdateAbonent(Phonebook phonebook)
     {
       Console.Write("Введите номер телефона абонента для обновления: ");
@@ -94,6 +100,10 @@ namespace Phonebook
       phonebook.UpdateAbonent(phone, newName);
     }
 
+    /// <summary>
+    /// Удаляет абонента из телефонной книги.
+    /// </summary>
+    /// <param name="phonebook">Экземпляр телефонной книги</param>
     private static void DeleteAbonent(Phonebook phonebook)
     {
       Console.Write("Введите номер телефона для удаления: ");
@@ -101,6 +111,10 @@ namespace Phonebook
       phonebook.DeleteAbonent(phone);
     }
 
+    /// <summary>
+    /// Выводит информацию об абоненте по имени из телефонной книги.
+    /// </summary>
+    /// <param name="phonebook">Экземпляр телефонной книги</param>
     private static void GetAbonentByName(Phonebook phonebook)
     {
       Console.Write("Введите имя абонента: ");
@@ -113,6 +127,10 @@ namespace Phonebook
       }
     }
 
+    /// <summary>
+    /// Выводит информацию об абоненте по номеру телефона из телефонной книги.
+    /// </summary>
+    /// <param name="phonebook">Экземпляр телефонной книги</param>
     private static void GetAbonentByPhone(Phonebook phonebook)
     {
       Console.Write("Введите номер телефона: ");
@@ -125,6 +143,10 @@ namespace Phonebook
       }
     }
 
+    /// <summary>
+    /// Добавляет нового абонента в телефонную книгу.
+    /// </summary>
+    /// <param name="phonebook">Экземпляр телефонной книги</param>
     private static void AddAbonent(Phonebook phonebook)
     {
       Console.Write("Введите имя абонента: ");
