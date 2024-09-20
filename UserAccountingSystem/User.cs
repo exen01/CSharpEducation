@@ -1,10 +1,12 @@
 namespace UserAccountingSystem;
 
 /// <summary>
-/// Класс представляющий пользователя.
+/// Представляет информацию о пользователе.
 /// </summary>
 public class User
 {
+  #region Поля и свойства
+
   /// <summary>
   /// Идентификатор пользователя.
   /// </summary>
@@ -20,6 +22,20 @@ public class User
   /// </summary>
   public string Email { get; set; }
 
+  #endregion
+
+  #region Базовый класс
+
+  /// <summary>
+  /// Возвращает строковое представление пользователя.
+  /// </summary>
+  /// <returns>Строковое представление пользователя</returns>
+  public override string ToString() => $"User: {Id}, {Name}, {Email}";
+
+  #endregion
+
+  #region Конструкторы
+
   /// <summary>
   /// Конструктор.
   /// </summary>
@@ -33,9 +49,5 @@ public class User
     Email = email;
   }
 
-  /// <summary>
-  /// Возвращает строковое представление пользователя.
-  /// </summary>
-  /// <returns>Строковое представление пользователя</returns>
-  public override string ToString() => $"User: {Id}, {Name}, {Email}";
+  #endregion
 }

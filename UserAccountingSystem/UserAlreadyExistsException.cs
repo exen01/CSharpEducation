@@ -1,7 +1,7 @@
 namespace UserAccountingSystem;
 
 /// <summary>
-/// Класс исключения для ситуации, когда пользователь не найден.
+/// Исключение, возникающее, когда пользователь с указанным ID уже существует.
 /// </summary>
 public class UserAlreadyExistsException : Exception
 {

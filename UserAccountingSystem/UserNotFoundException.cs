@@ -1,7 +1,7 @@
 namespace UserAccountingSystem;
 
 /// <summary>
-/// Класс исключения для ситуации, когда пользователь не найден.
+/// Исключение, возникающее, когда пользователь не найден.
 /// </summary>
 public class UserNotFoundException : Exception
 {
