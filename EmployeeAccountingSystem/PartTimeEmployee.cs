@@ -5,10 +5,34 @@ namespace EmployeeAccountingSystem;
 /// </summary>
 public class PartTimeEmployee : Employee
 {
+  #region Поля и свойства
+
   /// <summary>
   /// Рабочие часы сотрудника.
   /// </summary>
   public int WorkingHours { get; set; }
+
+  #endregion
+
+  #region Базовый класс
+
+  /// <summary>
+  /// Рассчитывает зарплату сотрудника.
+  /// </summary>
+  /// <returns>Текущая зарплата сотрудника.</returns>
+  protected override decimal CalculateSalary()
+  {
+    return WorkingHours * BaseSalary;
+  }
+
+  public override string ToString()
+  {
+    return base.ToString() + $", Рабочие часы: {WorkingHours}";
+  }
+
+  #endregion
+
+  #region Конструкторы
 
   /// <summary>
   /// Конструктор.
@@ -21,21 +45,5 @@ public class PartTimeEmployee : Employee
     WorkingHours = workingHours;
   }
 
-  /// <summary>
-  /// Рассчитывает зарплату сотрудника.
-  /// </summary>
-  /// <returns>Текущая зарплата сотрудника.</returns>
-  protected override decimal CalculateSalary()
-  {
-    return WorkingHours * BaseSalary;
-  }
-
-  /// <summary>
-  /// Возвращает текстовое представление сотрудника.
-  /// </summary>
-  /// <returns>Текстовое представление сотрудника.</returns>
-  public override string ToString()
-  {
-    return base.ToString() + $", Рабочие часы: {WorkingHours}";
-  }
+  #endregion
 }

@@ -1,19 +1,10 @@
 namespace EmployeeAccountingSystem;
 
 /// <summary>
-/// Представляет штатного сотрудника 
+/// Представляет штатного сотрудника.
 /// </summary>
 public class FullTimeEmployee : Employee
 {
-  /// <summary>
-  /// Конструктор.
-  /// </summary>
-  /// <param name="name">Имя сотрудника.</param>
-  /// <param name="baseSalary">Базовая зарплата.</param>
-  public FullTimeEmployee(string name, decimal baseSalary) : base(name, baseSalary)
-  {
-  }
-  
   /// <summary>
   /// Рассчитывает зарплату сотрудника.
   /// </summary>
@@ -21,5 +12,14 @@ public class FullTimeEmployee : Employee
   protected override decimal CalculateSalary()
   {
     return BaseSalary;
+  }
+
+  /// <summary>
+  /// Конструктор.
+  /// </summary>
+  /// <param name="name">Имя сотрудника.</param>
+  /// <param name="baseSalary">Базовая зарплата.</param>
+  public FullTimeEmployee(string name, decimal baseSalary) : base(name, baseSalary)
+  {
   }
 }

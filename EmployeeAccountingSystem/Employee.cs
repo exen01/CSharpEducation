@@ -1,19 +1,44 @@
 namespace EmployeeAccountingSystem;
 
 /// <summary>
-/// Базовый класс представляющий сотрудника.
+/// Представляет информацию о сотруднике.
 /// </summary>
 public abstract class Employee
 {
+  #region Поля и свойства
+
   /// <summary>
   /// Имя сотрудника.
   /// </summary>
   public string Name { get; }
-  
+
   /// <summary>
   /// Базовая зарплата сотрудника.
   /// </summary>
   public decimal BaseSalary { get; set; }
+
+  #endregion
+
+  #region Методы
+
+  /// <summary>
+  /// Рассчитывает зарплату сотрудника.
+  /// </summary>
+  /// <returns>Текущая зарплата сотрудника.</returns>
+  protected abstract decimal CalculateSalary();
+
+  #endregion
+
+  #region Базовый класс
+
+  public override string ToString()
+  {
+    return $"Имя: {Name}, Базовая зарплата: {BaseSalary}, Текущая зарплата: {CalculateSalary()}";
+  }
+
+  #endregion
+
+  #region Конструкторы
 
   /// <summary>
   /// Конструктор.
@@ -26,18 +51,5 @@ public abstract class Employee
     BaseSalary = baseSalary;
   }
 
-  /// <summary>
-  /// Рассчитывает зарплату сотрудника.
-  /// </summary>
-  /// <returns>Текущая зарплата сотрудника.</returns>
-  protected abstract decimal CalculateSalary();
-
-  /// <summary>
-  /// Возвращает текстовое представление сотрудника.
-  /// </summary>
-  /// <returns>Текстовое представление сотрудника.</returns>
-  public override string ToString()
-  {
-    return $"Имя: {Name}, Базовая зарплата: {BaseSalary}, Текущая зарплата: {CalculateSalary()}";
-  }
+  #endregion
 }

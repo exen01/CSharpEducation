@@ -3,7 +3,7 @@
 internal class Program
 {
   private static readonly EmployeeManager<Employee> EmployeeManager = new EmployeeManager<Employee>();
-  
+
   static void Main(string[] args)
   {
     bool running = true;
@@ -42,7 +42,7 @@ internal class Program
           Console.WriteLine("Неверный выбор. Попробуйте снова.");
           break;
       }
-      
+
       if (running)
       {
         Console.WriteLine("Нажмите любую клавишу, чтобы продолжить...");
@@ -60,7 +60,7 @@ internal class Program
     string salary;
     string hours;
     Employee employee;
-    
+
     Console.WriteLine("Выберите тип сотрудника (1 - полного сотрудника, 2 - частичного сотрудника):");
     string type = Console.ReadLine();
 
@@ -68,11 +68,20 @@ internal class Program
     {
       case "1":
         Console.Write("Введите имя сотрудника: ");
-         name = Console.ReadLine();
+        name = Console.ReadLine();
         Console.Write("Введите базовую зарплату: ");
-         salary = Console.ReadLine();
+        salary = Console.ReadLine();
         employee = new FullTimeEmployee(name, Convert.ToDecimal(salary));
-        EmployeeManager.Update(employee);
+
+        try
+        {
+          EmployeeManager.Update(employee);
+        }
+        catch (ArgumentException e)
+        {
+          Console.WriteLine(e.Message);
+        }
+
         break;
       case "2":
         Console.Write("Введите имя сотрудника: ");
@@ -82,7 +91,16 @@ internal class Program
         Console.Write("Введите рабочие часы сотрудника: ");
         hours = Console.ReadLine();
         employee = new PartTimeEmployee(Convert.ToInt32(hours), name, Convert.ToDecimal(salary));
-        EmployeeManager.Update(employee);
+
+        try
+        {
+          EmployeeManager.Update(employee);
+        }
+        catch (ArgumentException e)
+        {
+          Console.WriteLine(e.Message);
+        }
+
         break;
       default:
         Console.WriteLine("Не известный тип сотрудника, попробуйте снова");
@@ -120,9 +138,16 @@ internal class Program
     string hours = Console.ReadLine();
     Console.Write("Введите базовую зарплату: ");
     string salary = Console.ReadLine();
-    
+
     PartTimeEmployee partTimeEmployee = new PartTimeEmployee(Convert.ToInt32(hours), name, Convert.ToDecimal(salary));
-    EmployeeManager.Add(partTimeEmployee);
+    try
+    {
+      EmployeeManager.Add(partTimeEmployee);
+    }
+    catch (ArgumentException e)
+    {
+      Console.WriteLine(e.Message);
+    }
   }
 
   /// <summary>
@@ -134,8 +159,15 @@ internal class Program
     string name = Console.ReadLine();
     Console.Write("Введите базовую зарплату: ");
     string salary = Console.ReadLine();
-    
+
     FullTimeEmployee fullTimeEmployee = new FullTimeEmployee(name, Convert.ToDecimal(salary));
-    EmployeeManager.Add(fullTimeEmployee);
+    try
+    {
+      EmployeeManager.Add(fullTimeEmployee);
+    }
+    catch (ArgumentException e)
+    {
+      Console.WriteLine(e.Message);
+    }
   }
 }
