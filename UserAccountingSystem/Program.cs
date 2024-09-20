@@ -50,6 +50,10 @@ class Program
     }
   }
 
+  /// <summary>
+  /// Выводит информацию о пользователе на консоль.
+  /// </summary>
+  /// <param name="manager">Объект <see cref="UserManager"/></param>
   private static void PrintUser(UserManager manager)
   {
     Console.WriteLine("Введите ID пользователя, для которого нужно вывести информацию:");
@@ -73,6 +77,10 @@ class Program
     }
   }
 
+  /// <summary>
+  /// Добавляет пользователя в список.
+  /// </summary>
+  /// <param name="manager">Объект <see cref="UserManager"/></param>
   private static void AddUser(UserManager manager)
   {
     Console.WriteLine("Введите ID пользователя:");
@@ -93,6 +101,10 @@ class Program
     }
   }
 
+  /// <summary>
+  /// Удаляет пользователя из списка.
+  /// </summary>
+  /// <param name="manager">Объект <see cref="UserManager"/></param>
   private static void RemoveUser(UserManager manager)
   {
     Console.WriteLine("Введите ID пользователя, которого хотите удалить:");
@@ -114,6 +126,10 @@ class Program
     }
   }
 
+  /// <summary>
+  /// Выводит список пользователей на консоль.
+  /// </summary>
+  /// <param name="manager">Объект <see cref="UserManager"/></param>
   private static void PrintUserList(UserManager manager)
   {
     var listUsers = manager.ListUsers();
