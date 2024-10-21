@@ -99,6 +99,14 @@ public class Phonebook
     this.subscribers.Remove(subscriberToDelete);
   }
 
+  /// <summary>
+  /// Очистить список абонентов.
+  /// </summary>
+  internal void ClearPhonebookList()
+  {
+    this.subscribers.Clear();
+  }
+
   #endregion
 
   #region Конструкторы
