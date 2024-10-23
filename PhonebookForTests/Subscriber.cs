@@ -62,6 +62,11 @@ public class Subscriber
   {
     this.Name = name;
     this.PhoneNumbers = numberses;
+
+    if (id == Guid.Empty)
+    {
+      throw new ArgumentNullException(nameof(id));
+    }
     this.Id = id;
   }
 

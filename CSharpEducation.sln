@@ -11,7 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserAccountingSystem", "Use
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeAccountingSystem", "EmployeeAccountingSystem\EmployeeAccountingSystem.csproj", "{8524A78D-1B84-441D-BDB7-8BAD2C1D4CC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phonebook", "PhonebookForTests\Phonebook.csproj", "{61A61007-0987-483D-B514-AF97058DA3BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhonebookForTests", "PhonebookForTests\PhonebookForTests.csproj", "{61A61007-0987-483D-B514-AF97058DA3BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phonebook.Tests", "Phonebook.Tests\Phonebook.Tests.csproj", "{9829DF57-704F-4219-917E-671A136B568C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{61A61007-0987-483D-B514-AF97058DA3BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61A61007-0987-483D-B514-AF97058DA3BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61A61007-0987-483D-B514-AF97058DA3BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9829DF57-704F-4219-917E-671A136B568C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9829DF57-704F-4219-917E-671A136B568C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9829DF57-704F-4219-917E-671A136B568C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9829DF57-704F-4219-917E-671A136B568C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
